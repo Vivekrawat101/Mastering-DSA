@@ -18,18 +18,18 @@ def remove_duplicates(arr):
     n = len(arr)
     i = 1
     j = 1
-    c = 1
+
     while j < n:
         
         if arr[j] != arr[j-1]:
                  
             arr[i] = arr[j]
             i+=1              
-            c+=1
+  
             
         j+=1
 
-    return c    
+    return i    
             
 arr=[1,1,1,2,2,3,3,3,4,4,4,5]
 
