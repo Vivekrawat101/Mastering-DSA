@@ -12,3 +12,33 @@ Output: [1,2,2,3,5,6]
 
 Link: https://leetcode.com/problems/merge-sorted-array/
 """
+
+
+def merge_sorted_arrays(nums1, nums2, m, n):
+       
+       i = n-1
+       j = m-1
+       k = (n+m)-1
+       
+       while j >= 0:
+              
+              if nums2[j] > nums1[i]:
+                     
+                     nums1[k] = nums2[j]
+                     j-=1
+
+              else:
+                     nums1[k] = nums1[i]
+                     i-=1
+
+              k-=1                  
+       
+       return nums1
+       
+       
+nums1 = [1,2,3,0,0,0]
+nums2 = [2,5,6]       
+m = 3
+n = 3
+
+print(merge_sorted_arrays(nums1, nums2, m, n))
