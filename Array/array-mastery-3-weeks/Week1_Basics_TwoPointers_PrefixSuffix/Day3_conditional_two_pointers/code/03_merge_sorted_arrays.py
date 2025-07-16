@@ -30,7 +30,7 @@ def merge_sorted_arrays(nums1, nums2, m, n):
                      nums1[k] = nums1[i]
                      i-=1
               k-=1                  
-       
+              
        return nums1
        
        
