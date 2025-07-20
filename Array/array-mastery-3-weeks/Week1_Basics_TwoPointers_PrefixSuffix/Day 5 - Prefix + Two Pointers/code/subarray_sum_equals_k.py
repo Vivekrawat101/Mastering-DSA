@@ -9,3 +9,4 @@ Output: 2  # Subarrays: [1,1] from index 0-1 and 1-2
 """
 
 # Write your implementation here
+
