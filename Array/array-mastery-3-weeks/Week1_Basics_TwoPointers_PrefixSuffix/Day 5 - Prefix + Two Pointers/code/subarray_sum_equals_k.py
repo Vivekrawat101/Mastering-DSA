@@ -1,5 +1,5 @@
 """
-🟢 Subarray Sum Equals K
+Subarray Sum Equals K
 
 Problem:
 Count the number of continuous subarrays whose sum equals to `k`.
@@ -10,22 +10,24 @@ Output: 2  # Subarrays: [1,1] from index 0-1 and 1-2
 
 # Write your implementation here
 
-def solution(nums,k):
-    left = 0
-    curr_sum = 0
+
+
+def hashing_solution(arr,k):
+    
+    prefix_count = {0: 1}
+    current_sum = 0
     count = 0
     
-    for right in range(len(nums)):
-        curr_sum += nums[right]
+    for num in arr:
         
-        while curr_sum > k:
-            curr_sum -= nums[left]
-            left += 1
+        current_sum += num
         
-        if curr_sum == k:
-            count += 1
+        if current_sum-k in prefix_count:
+            
+            count += prefix_count[current_sum-k]
+        
+        prefix_count[current_sum] = prefix_count.get(current_sum, 0) + 1
     
     return count
 
-print(solution([1, 2, 1, 2, 1], 3))
-    
+print(hashing_solution([1, 2, 1, 2],3))
