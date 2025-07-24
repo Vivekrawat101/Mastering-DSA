@@ -1,5 +1,5 @@
 """
-🟢 Count Subarrays With Fixed Sum
+Count Subarrays With Fixed Sum
 
 Problem:
 Count how many subarrays sum exactly to `k`.
