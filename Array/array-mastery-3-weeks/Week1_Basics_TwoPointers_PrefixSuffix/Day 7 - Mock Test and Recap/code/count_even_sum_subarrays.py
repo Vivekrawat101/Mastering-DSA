@@ -5,28 +5,29 @@ Problem:
 Count how many subarrays have an even total sum.
 
 Input: [1,2,3,4]
-Output: 4  # [1,2,3], [2], [3,4], [4]
+Output: 4  # [1,2,3], [2], [1,2,3,4], [4]
 """
 
 # Write your implementation here
 def solution(arr):
     
-    curr_sum = 0
-    left = 0
-    count = 0
-    
-    for right in range(0, len(arr)):
-        
-        curr_sum+=arr[right]
-        
-        if curr_sum%2!=0:
-            
-            curr_sum-=arr[left]
-            left+=1
-        
-        count+=1    
-    
-    return count
+    from collections import defaultdict
 
+    count = defaultdict(int)
+    count[0] = 1  # Empty prefix sum is considered even
+    prefix_sum = 0
+    result = 0
 
-print(solution([2,4,6]))    
+    for num in arr:
+        prefix_sum += num
+        parity = prefix_sum % 2
+
+        # Add the number of subarrays ending here with same parity
+        result += count[parity]
+
+        # Update the count for this parity
+        count[parity] += 1
+        print(count[parity])
+    return result
+
+print(solution([1,2,3,4]))    
